@@ -104,58 +104,50 @@ def open_sentiment_analyzer():
 
 
 def open_fake_news_detector():
-    # Use the global keyword to indicate that we are using the global text_entry and result_label variables
     global text_entry, result_label
     # Clear the window
     for widget in root.winfo_children():
         widget.destroy()
 
-    # Use a larger, nicer font for the labels and button
     font = ("Helvetica", 16)
 
     label = tk.Label(root, text="Enter the news text:", font=font, bg='light blue')
-    label.pack(pady=10)  # Add vertical padding
+    label.pack(pady=10)  
 
     text_entry = tk.Text(root, height=10, width=50)
-    text_entry.pack(pady=10)  # Add vertical padding
+    text_entry.pack(pady=10)  
 
     result_label = tk.Label(root, text="", font=font, bg='light blue')
-    result_label.pack(pady=10)  # Add vertical padding
-
+    result_label.pack(pady=10)  
     detect_button = tk.Button(root, text="Detect Fake News", command=detect_fake_news, font=font)
-    detect_button.pack(pady=10)  # Add vertical padding
+    detect_button.pack(pady=10) 
 
     back_button = tk.Button(root, text="Back", command=open_main_menu, font=font)  # Add a Back button
-    back_button.pack(pady=10)  # Add vertical padding
+    back_button.pack(pady=10)  
 
 
 def open_main_menu():
-    # Clear the window
     for widget in root.winfo_children():
         widget.destroy()
 
-    # Use a larger, nicer font for the labels and button
     font = ("Helvetica", 16)
 
     label = tk.Label(root, text="Choose an option:", font=font)
-    label.pack(pady=10)  # Add vertical padding
+    label.pack(pady=10)  
 
     sentiment_button = tk.Button(root, text="Sentiment Analyzer", command=open_sentiment_analyzer, font=font)
-    sentiment_button.pack(pady=10)  # Add vertical padding
+    sentiment_button.pack(pady=10) 
 
     fake_news_button = tk.Button(root, text="Fake News Detector", command=open_fake_news_detector, font=font)
-    fake_news_button.pack(pady=10)  # Add vertical padding
-
+    fake_news_button.pack(pady=10)  
 
 root = tk.Tk()
-root.state('zoomed')  # Make the window open in maximized mode
-root.title("Choose an option")  # Set the title of the window
-root.configure(bg='light blue')  # Set the background color of the window
+root.state('zoomed')  
+root.title("Choose an option")  
+root.configure(bg='light blue')  
 
-# Create a frame in the center of the window
 frame = tk.Frame(root)
 frame.place(relx=0.5, rely=0.5, anchor='center')
 
 open_main_menu()
-
 root.mainloop()
